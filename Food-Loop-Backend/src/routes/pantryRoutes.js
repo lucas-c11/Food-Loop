@@ -3,6 +3,8 @@ const Pantry = require("../models/Pantry");
 
 const router = express.Router();
 
+
+// get all pantries
 router.get("/", async (req, res) => {
     try {
         const pantries = await Pantry.find();
@@ -15,6 +17,7 @@ router.get("/", async (req, res) => {
     }
 });
 
+// add new pantry
 router.post("/", async (req, res) => {
     try {
         const pantry = await Pantry.create(req.body);
@@ -27,6 +30,7 @@ router.post("/", async (req, res) => {
     }
 });
 
+// get one pantry
 router.get("/:id", async (req, res) => {
     try {
         const pantry = await Pantry.findById(req.params.id);
@@ -46,6 +50,9 @@ router.get("/:id", async (req, res) => {
     }
 });
 
+
+
+// update one pantry data
 router.patch("/:id", async (req, res) => {
     try {
         const pantry = await Pantry.findByIdAndUpdate(
@@ -72,6 +79,7 @@ router.patch("/:id", async (req, res) => {
     }
 });
 
+// delete a pantry
 router.delete("/:id", async (req, res) => {
     try {
         const pantry = await Pantry.findByIdAndDelete(
