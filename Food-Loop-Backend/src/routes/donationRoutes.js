@@ -25,7 +25,7 @@ router.get("/", async (req, res) => {
 router.get("/restaurant/:restaurantId", async (req, res) => {
     try {
         const donations = await Donation.find({
-            restaurantId: req.params.restuarantId
+            restaurantId: req.params.restaurantId
         })
             .populate("restaurantId")
             .populate("pantryId")
@@ -70,7 +70,14 @@ router.get("/available", async (req, res) => {
 
 // Claim a donation
 router.patch("/:id/claim", async (req, res) => {
+    
     try {
+        const { pantryId } = req.body;
+        if (!pantryId) {
+            return res.status(400).json({
+                message: "pantryId is required"
+            });
+        }
         const donation = await Donation.findOneAndUpdate(
             {
                 _id: req.params.id,
@@ -78,7 +85,7 @@ router.patch("/:id/claim", async (req, res) => {
             },
             {
                 pantryId: pantryId,
-                status: "claimed"
+                status: "done"
             },
             {
                 new: true,
