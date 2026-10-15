@@ -1,0 +1,261 @@
+.app-shell { min-height: 100vh; display: flex; background: #f6f8f4; }
+.sidebar { width: 260px; flex: 0 0 260px; min-height: 100vh; position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; padding: 27px 18px 20px; background: #173d30; color: #f3f8f3; }
+.brand { display: flex; align-items: center; gap: 11px; padding: 0 10px; color: #fff; text-decoration: none; font: 800 22px/1 "Manrope", sans-serif; letter-spacing: -1.1px; }
+.brand-mark { display: grid; place-items: center; width: 39px; height: 39px; color: #173d30; background: #d5edb9; border-radius: 13px 13px 13px 5px; }
+.brand-accent { color: #b8dc9a; }
+.brand small { display: block; margin-top: 6px; color: #9fb8a9; font: 600 8px/1 "DM Sans", sans-serif; letter-spacing: 1.45px; }
+.workspace-label, .sidebar-label { margin: 43px 10px 12px; color: #91a99b; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; }
+.workspace-card { display: flex; align-items: center; gap: 10px; padding: 11px 10px; border: 1px solid #355b4b; border-radius: 13px; background: #214a3b; }
+.workspace-avatar { display: grid; place-items: center; width: 35px; height: 35px; flex: 0 0 35px; border-radius: 11px; background: #d9edc9; color: #28543d; }
+.workspace-avatar.pantry { background: #fae6c7; color: #925a24; }
+.workspace-copy { display: grid; min-width: 0; gap: 4px; flex: 1; }
+.workspace-copy strong { overflow: hidden; color: #f7faf7; font-size: 12px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.workspace-copy small { color: #a9c0b2; font-size: 10px; }
+.online-dot, .foot-dot { width: 7px; height: 7px; flex: 0 0 7px; border-radius: 50%; background: #a9d88b; box-shadow: 0 0 0 3px #365d45; }
+.sidebar-label { margin-top: 34px; }
+.nav-link { position: relative; display: flex; align-items: center; gap: 12px; width: 100%; margin: 3px 0; padding: 11px 12px; border: 0; border-radius: 10px; color: #b7c9bd; text-align: left; background: transparent; font-size: 13px; font-weight: 500; transition: .18s ease; }
+.nav-link:hover { color: #fff; background: #224b3c; }
+.nav-link.selected { color: #fff; background: #2b5745; box-shadow: inset 0 0 0 1px #456d55; }
+.nav-link.selected > svg { color: #c5e3a8; }
+.nav-indicator { position: absolute; right: 11px; width: 6px; height: 6px; border-radius: 50%; background: #b6dd91; }
+.sidebar-bottom { margin-top: auto; }
+.impact-note { padding: 15px 14px 14px; border: 1px solid #355b4b; border-radius: 13px; background: #1e4738; }
+.impact-icon { display: grid; place-items: center; width: 28px; height: 28px; margin-bottom: 12px; border-radius: 9px; background: #355e43; color: #c3e6a1; }
+.impact-note strong { color: #f3f8f3; font-size: 11px; }
+.impact-note p { margin: 6px 0 0; color: #a9c0b2; font-size: 10px; line-height: 1.6; }
+.add-workspace { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; margin-top: 12px; padding: 10px; border: 1px dashed #547460; border-radius: 10px; color: #cfddcf; background: transparent; font-size: 11px; transition: .2s; }
+.add-workspace:hover { border-color: #b3d595; color: #fff; background: #214a3b; }
+.sidebar-foot { display: flex; align-items: center; gap: 8px; margin: 19px 6px 0; color: #94ad9e; font-size: 9px; letter-spacing: .15px; }
+.foot-dot { background: #8fcf86; box-shadow: none; }
+
+.main-content { width: calc(100% - 260px); min-width: 0; }
+.page-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; padding: 38px clamp(26px, 5vw, 76px) 26px; border-bottom: 1px solid #e8ede6; background: rgba(255,255,255,.65); }
+.heading-copy h1 { margin: 8px 0 5px; color: #1d352a; font: 700 clamp(26px, 3vw, 34px)/1.16 "Manrope", sans-serif; letter-spacing: -1.2px; }
+.heading-copy p { margin: 0; color: #7d8d81; font-size: 13px; }
+.eyebrow { display: flex; align-items: center; gap: 7px; color: #718776; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; }
+.eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: #75a779; }
+.header-actions { display: flex; align-items: center; gap: 10px; }
+.org-select-wrap { display: flex; align-items: center; gap: 9px; min-width: 170px; max-width: 240px; padding: 10px 11px; border: 1px solid #e1e8df; border-radius: 10px; color: #65806c; background: #fff; }
+.org-select-wrap select { flex: 1; min-width: 0; appearance: none; border: 0; outline: 0; color: #334a3b; background: transparent; font-size: 11px; font-weight: 600; cursor: pointer; }
+.select-chevron { margin-top: -6px; color: #87988a; font-size: 18px; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 15px; border: 1px solid transparent; border-radius: 9px; font-size: 12px; font-weight: 700; transition: transform .16s, box-shadow .16s, background .16s; }
+.button:hover:not(:disabled) { transform: translateY(-1px); }
+.button-primary { color: #fff; background: #286b4b; box-shadow: 0 4px 10px #286b4b20; }
+.button-primary:hover:not(:disabled) { background: #1e5a3d; box-shadow: 0 7px 16px #286b4b2a; }
+.button-soft { color: #286b4b; border-color: #d7e6d7; background: #f5faf4; }
+.button-soft:hover:not(:disabled) { background: #eaf5e8; }
+.button-quiet { color: #66786a; border-color: #e5eae3; background: #fff; }
+.button-quiet:hover:not(:disabled) { border-color: #cad9c9; color: #345f43; }
+.button-small { padding: 8px 10px; font-size: 10px; white-space: nowrap; }
+.button-full { width: 100%; padding: 12px; }
+.text-button { display: flex; align-items: center; gap: 7px; padding: 7px 0; border: 0; color: #367553; background: none; font-size: 11px; font-weight: 700; }
+.text-button:hover { color: #1c5639; }
+.icon-button { display: grid; place-items: center; width: 33px; height: 33px; border: 1px solid #e7ebe5; border-radius: 9px; color: #718174; background: white; }
+.icon-button:hover { color: #244d37; background: #f6faf4; }
+.page-body { max-width: 1420px; margin: 0 auto; padding: 26px clamp(26px, 5vw, 76px) 25px; }
+.notice { display: flex; align-items: center; gap: 10px; margin-bottom: 19px; padding: 11px 13px; border-radius: 10px; font-size: 12px; }
+.notice-error { border: 1px solid #f0d4ca; color: #884a3b; background: #fff5f1; }
+.notice-success { border: 1px solid #cde5d0; color: #346442; background: #f1f9f1; }
+.notice-icon { display: grid; place-items: center; width: 23px; height: 23px; flex: 0 0 23px; border-radius: 50%; background: #f5ddd3; }
+.notice-dismiss { display: grid; place-items: center; width: 26px; height: 26px; margin-left: auto; border: 0; border-radius: 7px; color: inherit; background: transparent; }
+.notice-dismiss:hover { background: #ffffffaa; }
+.welcome-strip { position: relative; display: flex; align-items: center; gap: 13px; overflow: hidden; min-height: 74px; margin-bottom: 19px; padding: 15px 20px; border: 1px solid #dce9d6; border-radius: 13px; background: linear-gradient(105deg,#eef6e9,#f5f8e9 68%,#f2f5dd); }
+.strip-mark { display: grid; place-items: center; width: 40px; height: 40px; flex: 0 0 40px; border-radius: 12px; color: #396944; background: #dcecc9; }
+.welcome-strip > div:nth-child(2) { display: grid; gap: 4px; }
+.welcome-strip strong { color: #294a34; font: 700 13px "Manrope", sans-serif; }
+.welcome-strip span:not(.strip-decoration) { color: #788b75; font-size: 11px; }
+.strip-decoration { position: absolute; right: 23px; color: #d9e7ca; font-size: 53px; }
+.pantry-strip { border-color: #eadfce; background: linear-gradient(105deg,#fcf3e6,#f8f6e9 70%,#f3f1dd); }
+.pantry-strip .strip-mark { color: #8f5c30; background: #f1dfc6; }
+.pantry-strip strong { color: #5d482f; }
+.metric-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin-bottom: 28px; }
+.metric-card { position: relative; overflow: hidden; min-height: 126px; padding: 16px 17px; border: 1px solid #e5ebe2; border-radius: 13px; background: #fff; box-shadow: 0 3px 10px #27402908; }
+.metric-top { display: flex; align-items: center; justify-content: space-between; color: #758578; font-size: 10px; font-weight: 600; }
+.metric-icon { display: grid; place-items: center; width: 31px; height: 31px; border-radius: 10px; color: #4c815c; background: #eef6ec; }
+.tone-orange .metric-icon { color: #ac7040; background: #fbf0e2; }
+.tone-lavender .metric-icon { color: #7a709d; background: #f2eff9; }
+.metric-value { display: block; margin-top: 10px; color: #203b2c; font: 700 26px/1 "Manrope", sans-serif; letter-spacing: -.7px; }
+.metric-note { display: block; margin-top: 7px; color: #9aa69a; font-size: 9px; }
+.content-section { margin-top: 22px; }
+.section-title { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 13px; }
+.section-eyebrow { display: block; margin-bottom: 5px; color: #8b9a8d; font-size: 8px; font-weight: 700; letter-spacing: 1.25px; }
+.section-title h2 { display: flex; align-items: center; gap: 9px; margin: 0; color: #263b2f; font: 700 18px "Manrope", sans-serif; letter-spacing: -.4px; }
+.count-pill { display: inline-grid; place-items: center; min-width: 22px; height: 21px; padding: 0 6px; border-radius: 7px; color: #65816b; background: #eaf2e8; font: 700 10px "DM Sans", sans-serif; }
+.donation-list { display: grid; gap: 9px; }
+.donation-card { display: flex; align-items: center; gap: 14px; min-width: 0; padding: 12px; border: 1px solid #e7ece5; border-radius: 12px; background: #fff; box-shadow: 0 2px 9px #23382806; transition: border-color .15s, box-shadow .15s; }
+.donation-card:hover { border-color: #d2e2d0; box-shadow: 0 5px 15px #2338280c; }
+.food-art { position: relative; display: grid; place-items: center; width: 61px; height: 61px; flex: 0 0 61px; overflow: hidden; border-radius: 11px; color: #4b704a; background: #e4f0dc; font: 700 24px "Manrope", sans-serif; }
+.food-art-1 { color: #9b713f; background: #f5e8d4; }
+.food-art-2 { color: #587b74; background: #dfeeea; }
+.food-art-3 { color: #8f6571; background: #f1e5e9; }
+.food-art img { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.food-art-fallback { position: relative; z-index: 0; }
+.food-art-spark { position: absolute; right: 6px; bottom: 3px; color: #ffffffa8; font-size: 15px; }
+.donation-main { flex: 1; min-width: 0; }
+.donation-card-top { display: flex; align-items: center; gap: 10px; }
+.donation-card-top time { color: #9ca99d; font-size: 9px; }
+.status-badge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 7px; border-radius: 20px; color: #52784f; background: #edf6e9; font-size: 8px; font-weight: 700; letter-spacing: .1px; }
+.status-badge i { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+.status-claimed { color: #946a33; background: #fbf1dd; }
+.status-done { color: #5c648f; background: #efeffa; }
+.status-cancelled { color: #8c6259; background: #f9ece8; }
+.donation-main h3 { overflow: hidden; margin: 6px 0 3px; color: #2c3e32; font: 700 13px "Manrope", sans-serif; text-overflow: ellipsis; white-space: nowrap; }
+.donation-meta { margin: 0; color: #8b988d; font-size: 10px; }
+.donation-meta strong { color: #41594a; font-weight: 700; }
+.donation-meta span { padding: 0 3px; color: #c0c9c0; }
+.ingredient-list { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; }
+.ingredient-list span { padding: 3px 6px; border-radius: 5px; color: #748474; background: #f4f7f2; font-size: 8px; }
+.donation-actions { display: flex; flex: 0 0 auto; align-items: center; gap: 6px; }
+.action-progress { color: #8a9b8e; font-size: 9px; }
+.empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 206px; padding: 25px; border: 1px dashed #dfe7dd; border-radius: 12px; background: #fbfcfa; text-align: center; }
+.empty-icon { display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 12px; border-radius: 14px; color: #628366; background: #edf5e9; }
+.empty-state h3 { margin: 0; color: #334a39; font: 700 13px "Manrope", sans-serif; }
+.empty-state p { max-width: 310px; margin: 6px 0 13px; color: #8b998d; font-size: 10px; line-height: 1.65; }
+.empty-state .button { font-size: 10px; }
+.pantry-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+.compact-section { min-width: 0; margin-top: 1px; }
+.compact-section .donation-card { align-items: flex-start; flex-wrap: wrap; }
+.compact-section .food-art { width: 49px; height: 49px; flex-basis: 49px; font-size: 19px; }
+.compact-section .donation-main { flex-basis: calc(100% - 65px); }
+.compact-section .donation-actions { justify-content: flex-end; width: 100%; padding-left: 63px; }
+.compact-section .empty-state { min-height: 220px; }
+.loading-list { display: grid; gap: 9px; }
+.loading-list span { height: 86px; border: 1px solid #e8ede6; border-radius: 12px; background: linear-gradient(100deg,#fff 30%,#f1f5ef 48%,#fff 66%); background-size: 200% 100%; animation: shimmer 1.4s infinite; }
+@keyframes shimmer { to { background-position-x: -200%; } }
+.page-loading { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 300px; color: #7c8e7e; font-size: 12px; }
+.loading-orb { width: 11px; height: 11px; border: 2px solid #c8ddc5; border-top-color: #4c8b60; border-radius: 50%; animation: spin .7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.page-footer { display: flex; justify-content: space-between; margin-top: 42px; padding-top: 15px; border-top: 1px solid #e5ebe3; color: #a0aca0; font-size: 9px; }
+.page-footer span:last-child { display: flex; align-items: center; gap: 5px; color: #77927a; }
+
+.donation-form { margin: 18px 0 24px; padding: 19px; border: 1px solid #dfe9db; border-radius: 14px; background: #fff; box-shadow: 0 8px 24px #24402b0b; }
+.form-heading { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 17px; }
+.form-kicker { color: #799078; font-size: 8px; font-weight: 700; letter-spacing: 1.25px; }
+.form-heading h3 { margin: 5px 0 0; color: #263f2e; font: 700 17px "Manrope", sans-serif; }
+.donation-form label, .org-form label { display: grid; gap: 6px; color: #536557; font-size: 10px; font-weight: 700; }
+.donation-form input, .org-form input { width: 100%; min-width: 0; padding: 10px 11px; border: 1px solid #e1e8df; border-radius: 8px; color: #304537; background: #fbfcfa; font-size: 11px; font-weight: 400; }
+.donation-form input::placeholder, .org-form input::placeholder { color: #adb8ae; }
+.donation-form > label { margin-bottom: 11px; }
+.form-row { display: grid; grid-template-columns: 1fr 1.4fr; gap: 12px; }
+.optional-label { color: #9ba89c; font-size: 9px; font-weight: 400; }
+.form-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 17px; padding-top: 14px; border-top: 1px solid #edf0eb; }
+.form-footer > span { display: flex; align-items: center; gap: 6px; color: #8b9b8c; font-size: 9px; }
+.form-error { margin: 9px 0 0; color: #a24a3b; font-size: 10px; }
+
+.welcome-panel { position: relative; display: grid; grid-template-columns: minmax(190px,.8fr) minmax(280px,1.2fr); align-items: center; max-width: 900px; min-height: 350px; margin: 30px auto 0; overflow: hidden; padding: 35px 55px; border: 1px solid #dbe8d6; border-radius: 21px; background: linear-gradient(115deg,#eef6e9,#fbfcf7 78%); }
+.welcome-art { position: relative; display: grid; place-items: center; min-height: 210px; }
+.welcome-sun { position: absolute; width: 152px; height: 152px; border-radius: 50%; background: #e0edcb; }
+.welcome-leaf { position: relative; display: grid; place-items: center; width: 96px; height: 96px; border: 1px solid #d1e2c1; border-radius: 32px 32px 32px 12px; color: #3a7048; background: #f7fbf2; transform: rotate(-8deg); box-shadow: 0 12px 30px #456b3517; }
+.welcome-spark { position: absolute; color: #a8c58d; font-size: 24px; }
+.spark-one { top: 18px; right: 38px; }
+.spark-two { bottom: 24px; left: 30px; color: #e2b57d; font-size: 18px; }
+.welcome-content { position: relative; z-index: 1; }
+.welcome-content h2 { max-width: 400px; margin: 9px 0; color: #24402e; font: 700 27px/1.24 "Manrope", sans-serif; letter-spacing: -.9px; }
+.welcome-content p { max-width: 390px; margin: 0 0 18px; color: #718274; font-size: 12px; line-height: 1.7; }
+.welcome-footnote { position: absolute; right: 22px; bottom: 19px; display: flex; align-items: center; gap: 6px; color: #91a18f; font-size: 9px; }
+
+.modal-scrim { position: fixed; z-index: 10; inset: 0; display: grid; place-items: center; overflow-y: auto; padding: 24px; background: #14251dbb; backdrop-filter: blur(4px); }
+.modal-card { position: relative; width: min(100%,500px); padding: 30px; border: 1px solid #e4ebe1; border-radius: 19px; background: #fff; box-shadow: 0 25px 80px #09170f40; animation: modal-in .18s ease-out; }
+@keyframes modal-in { from { opacity: 0; transform: translateY(7px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.modal-close { position: absolute; top: 17px; right: 17px; }
+.modal-symbol { display: grid; place-items: center; width: 43px; height: 43px; margin-bottom: 18px; border-radius: 14px; color: #3f754e; background: #edf5e8; }
+.modal-card h2 { margin: 6px 0 4px; color: #263f2e; font: 700 23px "Manrope", sans-serif; letter-spacing: -.6px; }
+.modal-copy { margin: 0; color: #829084; font-size: 11px; }
+.role-switch { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin: 20px 0 17px; padding: 4px; border-radius: 10px; background: #f1f5ef; }
+.role-switch button { display: flex; align-items: center; justify-content: center; gap: 7px; padding: 9px; border: 0; border-radius: 7px; color: #7d8d80; background: transparent; font-size: 10px; font-weight: 600; }
+.role-switch button.active { color: #305c3c; background: #fff; box-shadow: 0 2px 6px #263b280e; }
+.org-form { display: grid; gap: 12px; }
+.location-fields { grid-template-columns: 1.3fr .8fr .8fr; }
+.org-form .button { margin-top: 5px; }
+
+.mobile-role-toggle { display: none; }
+@media (max-width: 1100px) {
+  .sidebar { width: 226px; flex-basis: 226px; padding-inline: 14px; }
+  .main-content { width: calc(100% - 226px); }
+  .page-header { padding-inline: 34px; }
+  .page-body { padding-inline: 34px; }
+  .pantry-columns { grid-template-columns: 1fr; }
+  .compact-section .donation-card { flex-wrap: nowrap; align-items: center; }
+  .compact-section .donation-main { flex-basis: auto; }
+  .compact-section .donation-actions { width: auto; padding-left: 0; }
+}
+@media (max-width: 760px) {
+  .sidebar { width: 69px; flex-basis: 69px; align-items: center; padding: 19px 8px 13px; }
+  .brand { padding: 0; }
+  .brand > span:last-child, .workspace-label, .sidebar-label, .workspace-copy, .online-dot, .nav-link span:not(.nav-indicator), .sidebar-bottom { display: none; }
+  .workspace-card { justify-content: center; width: 48px; margin-top: 30px; padding: 6px; border: 0; background: transparent; }
+  .workspace-avatar { width: 38px; height: 38px; flex-basis: 38px; }
+  .nav-link { justify-content: center; width: 47px; height: 44px; margin: 4px 0; padding: 0; }
+  .nav-indicator { top: 10px; right: 8px; width: 5px; height: 5px; }
+  .main-content { width: calc(100% - 69px); padding-bottom: 62px; }
+  .page-header { align-items: flex-start; flex-direction: column; gap: 15px; padding: 24px 20px 18px; }
+  .heading-copy h1 { font-size: 25px; }
+  .heading-copy p { font-size: 11px; }
+  .header-actions { width: 100%; justify-content: space-between; }
+  .org-select-wrap { min-width: 0; max-width: calc(100% - 135px); flex: 1; }
+  .button-primary span { white-space: nowrap; }
+  .page-body { padding: 18px 20px 24px; }
+  .metric-grid { gap: 7px; }
+  .metric-card { min-height: 112px; padding: 11px; }
+  .metric-top { align-items: flex-start; gap: 4px; font-size: 9px; }
+  .metric-icon { width: 26px; height: 26px; flex: 0 0 26px; }
+  .metric-value { font-size: 22px; }
+  .metric-note { font-size: 8px; line-height: 1.35; }
+  .donation-card { align-items: flex-start; flex-wrap: wrap; gap: 10px; }
+  .food-art { width: 48px; height: 48px; flex-basis: 48px; }
+  .donation-main { flex-basis: calc(100% - 59px); }
+  .donation-main h3 { font-size: 12px; }
+  .donation-actions { justify-content: flex-end; width: 100%; padding-left: 58px; }
+  .welcome-strip { padding: 12px; }
+  .welcome-strip strong { font-size: 11px; }
+  .welcome-strip span:not(.strip-decoration) { max-width: 230px; font-size: 9px; line-height: 1.45; }
+  .strip-decoration { right: 8px; font-size: 38px; }
+  .welcome-panel { grid-template-columns: 1fr; min-height: 0; margin: 8px 0; padding: 23px; }
+  .welcome-art { min-height: 150px; }
+  .welcome-sun { width: 112px; height: 112px; }
+  .welcome-leaf { width: 75px; height: 75px; border-radius: 25px 25px 25px 9px; }
+  .welcome-content h2 { font-size: 23px; }
+  .welcome-content p { font-size: 11px; }
+  .welcome-footnote { position: static; margin-top: 19px; }
+  .page-footer { margin-top: 28px; font-size: 8px; }
+  .section-title h2 { font-size: 16px; }
+  .donation-form { padding: 14px; }
+  .form-row { grid-template-columns: 1fr; gap: 10px; }
+  .form-footer { align-items: flex-start; flex-direction: column; }
+  .location-fields { grid-template-columns: 1fr 1fr; }
+  .location-fields label:first-child { grid-column: 1 / -1; }
+  .mobile-role-toggle { position: fixed; z-index: 5; right: 12px; bottom: 11px; left: 81px; display: grid; grid-template-columns: 1fr 1fr; gap: 5px; padding: 5px; border: 1px solid #dfe8dc; border-radius: 13px; background: #fff; box-shadow: 0 7px 25px #163d2c20; }
+  .mobile-role-toggle button { display: flex; align-items: center; justify-content: center; gap: 7px; padding: 10px 6px; border: 0; border-radius: 8px; color: #728477; background: transparent; font-size: 10px; font-weight: 700; }
+  .mobile-role-toggle button.active { color: #285b3d; background: #eff6eb; }
+  .modal-scrim { align-items: end; padding: 10px; }
+  .modal-card { padding: 24px 20px 20px; border-radius: 18px 18px 12px 12px; }
+}
+@media (max-width: 390px) {
+  .sidebar { width: 58px; flex-basis: 58px; }
+  .main-content { width: calc(100% - 58px); }
+  .mobile-role-toggle { left: 69px; }
+  .page-header { padding-inline: 15px; }
+  .page-body { padding-inline: 14px; }
+  .metric-card { padding: 9px; }
+  .metric-top { font-size: 8px; }
+}
+.auth-page { min-height: 100vh; display: grid; place-items: center; padding: 28px 16px; background: radial-gradient(circle at 10% 10%, #e8f2df 0, transparent 34%), #f6f8f4; }
+.auth-card { width: min(100%, 480px); padding: clamp(24px, 6vw, 42px); border: 1px solid #e3eae0; border-radius: 20px; background: #fff; box-shadow: 0 18px 55px #23452c12; }
+.auth-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 32px; color: #1d352a; font: 800 24px/1 "Manrope",sans-serif; letter-spacing: -1px; }
+.auth-card h1 { margin: 8px 0; color: #1d352a; font: 700 clamp(26px,5vw,32px)/1.2 "Manrope",sans-serif; letter-spacing: -1px; }
+.auth-intro { margin: 0 0 22px; color: #7d8d81; font-size: 13px; line-height: 1.6; }
+.auth-form { display: grid; gap: 14px; }
+.auth-form label { display: grid; gap: 7px; color: #435b49; font-size: 11px; font-weight: 700; }
+.auth-form input { width: 100%; min-width: 0; padding: 11px 12px; border: 1px solid #dfe7dc; border-radius: 9px; color: #263b2f; background: #fff; font-size: 13px; }
+.auth-form label small { color: #8b9a8d; font-size: 10px; font-weight: 400; }
+.auth-form .form-row { gap: 9px; }
+.auth-form .form-row label { min-width: 0; }
+.auth-form .button { margin-top: 4px; }
+.auth-card .role-switch { margin: 0 0 18px; }
+.auth-switch { margin: 18px 0 0; color: #7d8d81; text-align: center; font-size: 11px; }
+.auth-switch button { padding: 0; border: 0; color: #286b4b; background: none; font-size: inherit; font-weight: 700; }
+.auth-note { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 22px 0 0; color: #97a397; font-size: 10px; }
+.auth-loading { min-height: 100vh; }
+.account-email { max-width: 220px; overflow: hidden; color: #738477; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.sidebar-account { overflow: hidden; margin: 13px 4px 0; color: #a9c0b2; font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 700px) { .auth-form .form-row { flex-wrap: wrap; } .account-email { display: none; } }

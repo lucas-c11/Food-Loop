@@ -1,107 +1,41 @@
-const express = require("express");
+﻿const express = require("express");
+const mongoose = require("mongoose");
 const Pantry = require("../models/Pantry");
+const { sendError, validateObjectBody } = require("../utils/apiResponse");
 
 const router = express.Router();
+const fields = ["name", "address", "contacts", "foodItems", "certification"];
+const validId = (id) => mongoose.isValidObjectId(id);
+const ownerId = (req) => req.auth.pantryId;
 
-
-// get all pantries
 router.get("/", async (req, res) => {
     try {
-        const pantries = await Pantry.find();
-
-        res.json(pantries);
-    } catch (error) {
-        res.status(500).json({
-            error: error.message
-        });
-    }
+        const pantry = await Pantry.findById(ownerId(req));
+        res.json(pantry ? [pantry] : []);
+    } catch (error) { sendError(res, error); }
 });
+router.post("/", (req, res) => res.status(403).json({ message: "Create an account through /api/auth/register" }));
 
-// add new pantry
-router.post("/", async (req, res) => {
-    try {
-        const pantry = await Pantry.create(req.body);
-
-        res.status(201).json(pantry);
-    } catch (error) {
-        res.status(400).json({
-            error: error.message
-        });
-    }
-});
-
-// get one pantry
 router.get("/:id", async (req, res) => {
+    if (!validId(req.params.id)) return res.status(400).json({ message: "Invalid pantry id" });
+    if (String(req.params.id) !== String(ownerId(req))) return res.status(404).json({ message: "Pantry not found" });
     try {
-        const pantry = await Pantry.findById(req.params.id);
-
-        if (!pantry) {
-            return res.status(404).json({
-                message: "Pantry not found"
-            });
-        }
-
+        const pantry = await Pantry.findById(ownerId(req));
+        if (!pantry) return res.status(404).json({ message: "Pantry not found" });
         res.json(pantry);
-
-    } catch (error) {
-        res.status(500).json({
-            error: error.message
-        });
-    }
+    } catch (error) { sendError(res, error); }
 });
 
-
-
-// update one pantry data
 router.patch("/:id", async (req, res) => {
+    if (!validId(req.params.id)) return res.status(400).json({ message: "Invalid pantry id" });
+    if (String(req.params.id) !== String(ownerId(req))) return res.status(404).json({ message: "Pantry not found" });
+    const message = validateObjectBody(req.body, fields);
+    if (message) return res.status(400).json({ message });
     try {
-        const pantry = await Pantry.findByIdAndUpdate(
-            req.params.id,
-            req.body,
-            {
-                new: true,
-                runValidators: true
-            }
-        );
-
-        if (!pantry) {
-            return res.status(404).json({
-                message: "Pantry not found"
-            });
-        }
-
+        const pantry = await Pantry.findByIdAndUpdate(ownerId(req), req.body, { new: true, runValidators: true });
+        if (!pantry) return res.status(404).json({ message: "Pantry not found" });
         res.json(pantry);
-
-    } catch (error) {
-        res.status(400).json({
-            error: error.message
-        });
-    }
+    } catch (error) { sendError(res, error); }
 });
-
-// delete a pantry
-router.delete("/:id", async (req, res) => {
-    try {
-        const pantry = await Pantry.findByIdAndDelete(
-            req.params.id
-        );
-
-        if (!pantry) {
-            return res.status(404).json({
-                message: "Pantry not found"
-            });
-        }
-
-        res.json({
-            message: "Pantry deleted"
-        });
-
-    } catch (error) {
-        res.status(500).json({
-            error: error.message
-        });
-    }
-});
-
-
+router.delete("/:id", (req, res) => res.status(409).json({ message: "Organization accounts cannot be deleted yet" }));
 module.exports = router;

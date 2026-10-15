@@ -1,4 +1,8 @@
-package.json
+﻿package.json
 package-lock.json
 node_modules
 .env
+!Food-Loop-Frontend/package.json
+!Food-Loop-Frontend/package-lock.json
+Food-Loop-Frontend/node_modules/
+Food-Loop-Frontend/dist/
